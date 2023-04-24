@@ -1,0 +1,23 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Most Dangerous Cat in The Wild West",
+    "section": "",
+    "text": "pacman::p_load(\"extrafont\",\n               \"ggplot2\",\n               \"readr\",\n               \"dplyr\",\n               \"ggthemes\"\n)\n\nfreud <- read_csv(\"freud_data.csv\")"
+  },
+  {
+    "objectID": "index.html#spotted",
+    "href": "index.html#spotted",
+    "title": "The Most Dangerous Cat in The Wild West",
+    "section": "Spotted!",
+    "text": "Spotted!\n\nfreud %>%\n  mutate(c = factor(c)) %>%\n  ggplot(aes(x,\n             y,\n             colour = c\n  )) +\n  geom_point(shape = 15, size = 5.6) +\n  scale_color_manual(values = c(\n    \"0\" = \"red\",\n    \"1\" = \"black\",\n    \"2\" = \"darkgrey\",\n    \"3\" = \"lightgrey\",\n    \"4\" = \"lightpink4\",\n    \"5\" = \"pink\",\n    \"6\" = \"lightgreen\",\n    \"7\" = \"darkgreen\",\n    \"8\" = \"white\"\n  )\n  ) +\n  theme_void() +\n  theme(legend.position = \"none\", \n        plot.title = element_text(hjust = .5, vjust = -.05, size = 40, \n                                  family = \"Russo One\", color = \"yellow\"),\n        plot.background = element_rect(fill = \"black\"),\n        plot.caption = element_text(hjust = .5, vjust = 14, color = \"yellow\",\n                                    family = \"Russo One\", size = 20)) +\n  labs(title = \"WANTED\", caption = \"$ 15.000 CASH REWARD\") +\n  scale_x_continuous(breaks = NULL) +\n  scale_y_continuous(breaks = NULL)"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  }
+]

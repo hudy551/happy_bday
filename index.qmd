@@ -1,0 +1,57 @@
+---
+title: "The Most Dangerous Cat in The Wild West"
+format:
+  html:
+    theme: darkly
+    mainfont: Russo One
+    fontcolor: yellow
+editor: visual
+---
+
+## Gathering data
+
+```{r warning=FALSE, message=FALSE}
+pacman::p_load("extrafont",
+               "ggplot2",
+               "readr",
+               "dplyr",
+               "ggthemes"
+)
+
+freud <- read_csv("freud_data.csv")
+```
+
+## Spotted!
+
+```{r fig.width=4, fig.align='center'}
+freud %>%
+  mutate(c = factor(c)) %>%
+  ggplot(aes(x,
+             y,
+             colour = c
+  )) +
+  geom_point(shape = 15, size = 5.6) +
+  scale_color_manual(values = c(
+    "0" = "red",
+    "1" = "black",
+    "2" = "darkgrey",
+    "3" = "lightgrey",
+    "4" = "lightpink4",
+    "5" = "pink",
+    "6" = "lightgreen",
+    "7" = "darkgreen",
+    "8" = "white"
+  )
+  ) +
+  theme_void() +
+  theme(legend.position = "none", 
+        plot.title = element_text(hjust = .5, vjust = -.05, size = 40, 
+                                  family = "Russo One", color = "yellow"),
+        plot.background = element_rect(fill = "black"),
+        plot.caption = element_text(hjust = .5, vjust = 14, color = "yellow",
+                                    family = "Russo One", size = 20)) +
+  labs(title = "WANTED", caption = "$ 15.000 CASH REWARD") +
+  scale_x_continuous(breaks = NULL) +
+  scale_y_continuous(breaks = NULL)
+```
+
